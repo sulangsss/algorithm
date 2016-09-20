@@ -6,6 +6,8 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.Iterator;
+
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
@@ -116,5 +118,19 @@ public class StackTest {
             stack.push(String.valueOf(index));
         }
         assertTrue(stack.size() == 16);
+    }
+
+    @Test
+    public void testIterator() throws Exception {
+        IStack<String> stack = new Stack<>();
+        stack.push("1");
+        stack.push("2");
+        stack.push("3");
+        stack.push("4");
+
+        Iterator<String> iterator = stack.iterator();
+        while (iterator.hasNext()) {
+            System.out.println(iterator.next());
+        }
     }
 }

@@ -1,6 +1,7 @@
 package main.week2;
 
 import java.util.Arrays;
+import java.util.Iterator;
 
 /**
  * Created by sulang on 16-9-11.
@@ -77,5 +78,25 @@ public class Stack<T> implements IStack<T> {
     @Override
     public int size() {
         return mPos;
+    }
+
+    @Override
+    public Iterator<T> iterator() {
+        return new StackIterator<>();
+    }
+
+    public class StackIterator<E> implements Iterator<E> {
+        private int index = 0;
+
+        @Override
+        public boolean hasNext() {
+            return index < mPos;
+        }
+
+        @Override
+        @SuppressWarnings("unchecked")
+        public E next() {
+            return (E) mArrays[index++];
+        }
     }
 }
