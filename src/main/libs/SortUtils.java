@@ -62,4 +62,18 @@ public class SortUtils {
         arrays[exchange_a] = arrays[exchange_b];
         arrays[exchange_b] = swap;
     }
+
+    public static void exchange(int[] arrays, int exchange_a, int exchange_b) {
+        if (null == arrays) {
+            throw new IllegalArgumentException();
+        }
+
+        if (exchange_a >= arrays.length || exchange_b >= arrays.length) {
+            throw new IllegalArgumentException();
+        }
+
+        int swap = arrays[exchange_a];
+        arrays[exchange_a] = arrays[exchange_b];
+        arrays[exchange_b] = swap;
+    }
 }
